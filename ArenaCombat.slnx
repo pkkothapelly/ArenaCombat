@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="ArenaCombat.vcxproj" />
+  <Project Path="ArenaCombat.vcxproj" Id="b21da805-d30e-4574-acc8-32342d5c09c2" />
 </Solution>
