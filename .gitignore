@@ -1,0 +1,10 @@
+# Visual Studio temporary files
+.vs/
+
+# Build output
+x64/
+Debug/
+Release/
+
+# Per-user Visual Studio settings
+*.user
