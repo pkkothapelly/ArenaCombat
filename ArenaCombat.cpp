@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include<string>
 using namespace std;
 
 
@@ -60,7 +61,33 @@ void healPlayer(int& pHealth, int healAmount) {
 			pHealth = 100;
 		}
 }
+class Fighter {
 
+public:
+
+	string name;
+	int health;
+	int damage;
+
+	Fighter(string fighterName, int startingHealth, int startingDamage) {
+		name = fighterName; 
+		health = startingHealth;
+		damage = startingDamage;
+	}
+
+	void attack(Fighter& target) {
+
+		target.health -=  damage;
+
+	}
+
+	void showStats() {
+
+		cout <<"\n" << name << " Health: " << health;
+		cout << "\n" << name << " Damage: " << damage << "\n";
+	}
+
+ };
 
 int main()
 {
@@ -70,8 +97,18 @@ int main()
 	int enemyDamage = 10;
 	int choice;
 
+	Fighter player("Player", 100,10);
+	Fighter enemy("Enemy", 100, 10);
+	
+	player.attack(enemy);
+	enemy.showStats();
 
-	cout << "	==ARENA COMBAT==	 \n\n";
+	enemy.attack(player);
+	player.showStats();
+
+	
+
+	cout << "\n\n	==ARENA COMBAT==	 \n\n";
 
 	bool isPlayerDefending = false;
 	while (playerHealth>0 && enemyHealth>0) {
