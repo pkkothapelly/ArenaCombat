@@ -12,7 +12,7 @@ void Fighter::attack(Fighter& target) {
 
 }
 
-void Fighter::showStats() {
+void Fighter::showStats() const{
 
 	std::cout << "\n" << name << " Health: " << health;
 
@@ -23,12 +23,12 @@ void Fighter::showStats() {
 	std::cout << "\n";
 }
 
-int Fighter::getHealth() {
+int Fighter::getHealth() const{
 
 	return health;
 }
 
-bool Fighter::isDead() {
+bool Fighter::isDead() const{
 
 	return health <= 0;
 

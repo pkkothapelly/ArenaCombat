@@ -9,7 +9,7 @@ int getPlayerChoice() {
 	int choice; 
 	std::cin >> choice;
 	while (choice != 1 && choice != 2 && choice !=3) {
-			std::cout << "\nDont be blind, look at the choices again twat\n";
+			std::cout << "\nInvalid Input. Try again.\n";
 			std::cout << "Choose Action: ";
 			std::cin >> choice;
 	}
