@@ -1,6 +1,5 @@
-// ArenaCombat.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 #include "Fighter.h"
+#include "Soldier.h"
 #include <iostream>
 
 
@@ -17,13 +16,12 @@ int getPlayerChoice() {
 	return choice;
 }
 
-	
-
 int main()
 {
 
-	Fighter player("Player", 100,10);
+	Soldier player("Player", 100,10);
 	Fighter enemy("Enemy", 100, 10);
+	
 
 	std::cout << "\n\n	==ARENA COMBAT==	 \n\n";
 

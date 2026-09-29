@@ -14,12 +14,14 @@ private:
 public:
 	Fighter(std::string fighterName, int startingHealth, int startingDamage);
 
-	void attack(Fighter& target);
+	virtual ~Fighter() = default;
+
+	virtual void attack(Fighter& target);
 	void showStats() const;
 	int getHealth() const;
 	bool isDead() const;
 	void heal(int healAmount);
 	void defend();
-	
-	
+
 };
+
