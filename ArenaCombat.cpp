@@ -2,75 +2,67 @@
 #include "Soldier.h"
 #include <iostream>
 
+int getPlayerChoice()
+{
+    int choice;
+    std::cin >> choice;
 
-int getPlayerChoice() {
+    while (choice != 1 && choice != 2 && choice != 3)
+    {
+        std::cout << "\nInvalid Input. Try again.\n";
+        std::cout << "Choose Action: ";
+        std::cin >> choice;
+    }
 
-	int choice; 
-	std::cin >> choice;
-	while (choice != 1 && choice != 2 && choice !=3) {
-			std::cout << "\nInvalid Input. Try again.\n";
-			std::cout << "Choose Action: ";
-			std::cin >> choice;
-	}
-
-	return choice;
+    return choice;
 }
 
 int main()
 {
+    Soldier player("Player", 100, 10);
+    Fighter enemy("Enemy", 100, 10);
 
-	Soldier player("Player", 100,10);
-	Fighter enemy("Enemy", 100, 10);
-	
+    std::cout << "\n\n\t==ARENA COMBAT==\n\n";
 
-	std::cout << "\n\n	==ARENA COMBAT==	 \n\n";
+    while (!player.isDead() && !enemy.isDead())
+    {
+        std::cout << "1. Attack\n";
+        std::cout << "2. Defend\n";
+        std::cout << "3. Heal Yourself\n";
 
-	
-	while (!player.isDead() && !enemy.isDead()) {
+        int choice = getPlayerChoice();
 
-		std::cout << "1. Attack\n";
-		std::cout << "2. Defend\n";
-		std::cout << "3. Heal Yourself\n";
-		
-		int choice = getPlayerChoice();
+        if (choice == 1)
+        {
+            player.attack(enemy);
+            enemy.showStats();
+        }
+        else if (choice == 2)
+        {
+            player.defend();
+        }
+        else if (choice == 3)
+        {
+            player.heal(10);
+        }
 
-		if (choice == 1) {
-			player.attack(enemy);
-			enemy.showStats();
+        if (enemy.isDead())
+        {
+            std::cout << "\nEnemy is Dead\n";
+            break;
+        }
 
-		}
-		else if (choice == 2) {
-			
-			player.defend();
+        enemy.attack(player);
+        player.showStats();
 
-			}
+        if (player.isDead())
+        {
+            std::cout << "\nPlayer is Dead\n";
+            break;
+        }
 
-		else if (choice == 3) {
-			player.heal(10);
+        std::cout << "\n\t*****New Round*****\n\n";
+    }
 
-
-		}
-
-		if (enemy.isDead())
-		{
-			std::cout << "\nEnemy is Dead\n";
-			break;
-		}
-
-		enemy.attack(player);
-		player.showStats();
-
-		
-
-		if (player.isDead()) {
-			std::cout << "\nPlayer is Dead\n";
-			break;
-		}
-
-		std::cout << "\n	*****New Round*****		\n\n";
-	}
-	
-
-	return 0;
+    return 0;
 }
-

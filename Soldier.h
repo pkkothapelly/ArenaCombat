@@ -2,11 +2,10 @@
 
 #include "Fighter.h"
 
-class Soldier : public Fighter {
-
+class Soldier : public Fighter
+{
 public:
-	using Fighter::Fighter;
+    using Fighter::Fighter;
 
-	void attack(Fighter& target)override;
-
+    void attack(Fighter& target) override;
 };

@@ -1,12 +1,11 @@
 #pragma once
+
 #include "Fighter.h"
 
-class Knight:public Fighter {
-
+class Knight : public Fighter
+{
 public:
-	using Fighter::Fighter;
+    using Fighter::Fighter;
 
-
-	void attack(Fighter& target) override;
-
+    void attack(Fighter& target) override;
 };

@@ -2,10 +2,8 @@
 
 
 
-void Soldier::attack(Fighter& target) {
-
+void Soldier::attack(Fighter& target) 
+{
 	Fighter::attack(target);
 	Fighter::attack(target);
-	
-
 }

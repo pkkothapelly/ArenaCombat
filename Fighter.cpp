@@ -1,65 +1,62 @@
 #include "Fighter.h"
-#include <iostream> 
+#include <iostream>
 
 Fighter::Fighter(std::string fighterName, int startingHealth, int startingDamage)
-	: name(fighterName), health(startingHealth), damage(startingDamage) {
-
+    : name(fighterName), health(startingHealth), damage(startingDamage)
+{
 }
 
-void Fighter::attack(Fighter& target) {
-
-	target.takeDamage(damage);
-
+void Fighter::attack(Fighter& target)
+{
+    target.takeDamage(damage);
 }
 
-void Fighter::showStats() const{
+void Fighter::showStats() const
+{
+    std::cout << "\n" << name << " Health: " << health;
 
-	std::cout << "\n" << name << " Health: " << health;
+    if (!isDead())
+    {
+        std::cout << "\n" << name << " Damage: " << damage << "\n";
+    }
 
-	if (!isDead()) {
-		std::cout << "\n" << name << " Damage: " << damage << "\n";
-	}
-
-	std::cout << "\n";
+    std::cout << "\n";
 }
 
-int Fighter::getHealth() const{
-
-	return health;
+int Fighter::getHealth() const
+{
+    return health;
 }
 
-bool Fighter::isDead() const{
-
-	return health <= 0;
-
+bool Fighter::isDead() const
+{
+    return health <= 0;
 }
 
-void Fighter::heal(int healAmount) {
+void Fighter::heal(int healAmount)
+{
+    health += healAmount;
 
-	health += healAmount;
-
-	if (health >= 100) {
-
-		health = 100;
-	}
+    if (health >= 100)
+    {
+        health = 100;
+    }
 }
 
-void Fighter::defend() {
-
-	isDefending = true;
+void Fighter::defend()
+{
+    isDefending = true;
 }
 
-void Fighter::takeDamage(int incomingDamage) {
-
-	if (isDefending) {
-
-		health -= incomingDamage / 2;
-		isDefending = false;
-
-	}
-	else {
-		health -= incomingDamage;
-	}
-
-
+void Fighter::takeDamage(int incomingDamage)
+{
+    if (isDefending)
+    {
+        health -= incomingDamage / 2;
+        isDefending = false;
+    }
+    else
+    {
+        health -= incomingDamage;
+    }
 }
